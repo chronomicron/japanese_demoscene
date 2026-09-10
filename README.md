@@ -182,25 +182,11 @@ The implementation should remain close to the hardware and retain the spirit of 
 - Git
 - GitHub
 
-The final target is a standalone Windows `.exe`.
+Development begins on Linux. A Windows `.exe` build will be added once the core is solid. The code is written with cross-platform compilation in mind.
 
-### Graphics
+### Chosen technology stack
 
-The project should investigate lightweight graphics approaches, potentially including:
-
-- OpenGL
-- GLSL
-- GPU procedural rendering
-- framebuffer techniques
-- ray marching
-- signed-distance fields
-- procedural textures
-- particles
-- lightweight 3D mathematics
-
-GPU acceleration is interesting not simply because it is fast, but because a GPU can generate extremely complex visual results from surprisingly little code and data.
-
-CUDA may be investigated experimentally, but the primary goal is a portable, compact graphics demo rather than making CUDA a requirement.
+The project uses **C + GLFW + OpenGL + GLSL**. GLFW provides a clean, lightweight window and OpenGL context. All significant visuals are generated procedurally through mathematics — primarily in GLSL shaders using techniques such as raymarching, signed distance fields, noise functions, and procedural patterns — rather than relying on large pre-made assets. This approach favors visual complexity from compact code. Audio will be introduced later with a small external library or custom procedural synthesizer, with strong emphasis on synchronizing musical beats to on-screen events. CUDA and other vendor-specific GPU paths are avoided so the demo can run on a wide range of machines.
 
 ---
 
@@ -549,3 +535,4 @@ That reaction is more important than any individual technology.
 The project should demonstrate that mathematics, C, shaders, procedural generation, careful design, and creative collaboration can produce an unusually rich visual experience from a very small program.
 
 **Small code. Small data. Big visual impact.**
+
